@@ -166,12 +166,10 @@ figure{margin:0;}
 
 @media(max-width:880px){
   .hamburger{
-    display:flex; z-index:1001; position:fixed; right:24px; top:30px;
+    display:flex; z-index:1005; position:fixed; right:24px; top:30px;
     background:var(--nav-bg); padding:8px; border-radius:8px;
     transition: background .25s var(--ease-smooth);
   }
-
-   .hamburger span{height:2px; background:#fff; border-radius:4px; transition:transform .3s var(--ease-smooth), opacity .3s var(--ease-smooth)}
 
 
   .nav{
