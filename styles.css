@@ -170,6 +170,8 @@ figure{margin:0;}
     background:var(--nav-bg); padding:8px; border-radius:8px;
     transition: background .25s var(--ease-smooth);
   }
+
+   .hamburger span{background:#fff}
   .nav{
     position:absolute; left:4%; right:4%; top:62px;
     flex-direction:column; gap:.25rem; justify-content:initial;
