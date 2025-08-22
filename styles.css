@@ -171,6 +171,9 @@ figure{margin:0;}
     transition: background .25s var(--ease-smooth);
   }
 
+   .hamburger span{height:2px; background:#fff; border-radius:4px; transition:transform .3s var(--ease-smooth), opacity .3s var(--ease-smooth)}
+
+
   .nav{
     position:absolute; left:4%; right:4%; top:62px;
     flex-direction:column; gap:.25rem; justify-content:initial;
