@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Book a Shoot — Mr.Look</title>
+
+  <!-- Remix Icons + Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+
+  <style>
+    :root{
+      /* Mr.Look theme tokens */
+      --white:#fff;
+      --black:#000;
+      --amber:#f59e0b;
+      --amber-600:#d97706;
+      --gray-50:#fafafa;
+      --gray-100:#f5f5f5;
+      --gray-200:#e5e7eb;
+      --gray-300:#d1d5db;
+      --gray-500:#6b7280;
+      --gray-700:#374151;
+
+      /* Bootstrap CSS variables override */
+      --bs-body-bg: var(--white);
+      --bs-body-color: rgba(0,0,0,.92);
+      --bs-primary: var(--amber);
+      --bs-primary-rgb: 245,158,11;
+      --bs-border-color: rgba(0,0,0,.12);
+      --bs-border-radius: 14px;
+      --bs-btn-border-radius: 12px;
+
+      --ring: 0 0 0 .25rem rgba(245,158,11,.25);
+      --shadow: 0 18px 45px rgba(0,0,0,.08);
+      --container-max: 1100px;
+    }
+
+    body{ font:15px/1.6 system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif; }
+
+    .container-custom{ width:min(var(--container-max), 92%); margin-inline:auto; }
+
+    /* Navbar (glass on top of hero) */
+    .navbar{
+      backdrop-filter: saturate(1.2) blur(8px);
+      -webkit-backdrop-filter: saturate(1.2) blur(8px);
+      background: linear-gradient(to bottom, rgba(0,0,0,.92), rgba(0,0,0,.78));
+      border-bottom: 1px solid var(--bs-border-color);
+    }
+    .navbar .navbar-brand{ letter-spacing:3px; font-weight:700; font-size: 1.3rem;color:#fff; text-decoration: none; align-items: center;}
+    .navbar .nav-link{ color:#f3f3f3; font-weight:600; }
+    .navbar .nav-link:hover{ color:#fff; }
+
+  /* Hero */
+    .hero{
+      position:relative; isolation:isolate;
+      min-height: clamp(360px, 56vh, 620px);
+      display:grid; align-items:center;
+      background: var(--gray-50);
+      overflow:hidden;
+    }
+    .hero::after{
+      content:""; position:absolute; inset:0; z-index:0;
+      background:
+        radial-gradient(900px 380px at 18% 12%, rgba(245,158,11,.12), transparent 70%),
+        linear-gradient(180deg, rgba(0,0,0,0.00) 0%, rgba(0,0,0,.55) 100%);
+      pointer-events:none;
+    }
+    .hero-media{ position:absolute; inset:0; z-index:-1; overflow:hidden; }
+    .hero-img{
+      width:100%; height:100%; object-fit:cover;
+      filter: saturate(1.02) contrast(1.02) brightness(.92);
+      transform: scale(1.02);
+      opacity:0; transition: opacity .5s ease;
+    }
+    .hero-img.loaded{ opacity:1; }
+    .hero-content{ position:relative; z-index:1; padding:48px 0; }
+    .hero h1{ color:#fff; font-weight:900; letter-spacing:.02em; text-shadow:0 2px 16px rgba(0,0,0,.08); }
+    .hero p{ color:var(--gray-200); max-width: 680px; }
+
+    /* Brand button */
+    .btn-brand{
+      --bs-btn-bg: linear-gradient(135deg,var(--amber),var(--amber-600));
+      --bs-btn-color:#111;
+      --bs-btn-border-color: transparent;
+      background: var(--bs-btn-bg);
+      color: var(--bs-btn-color);
+      border-color: var(--bs-btn-border-color);
+      font-weight:800;
+      box-shadow: 0 10px 22px rgba(245,158,11,.25);
+    }
+    .btn-brand:hover{ filter:saturate(1.06) brightness(1.02); }
+    .btn-outline-dark{ border-color: var(--bs-border-color); }
+
+    /* Cards */
+    .card{ box-shadow: var(--shadow); border:1px solid var(--bs-border-color); }
+    .card-header{ background:var(--white); }
+
+    /* Form bits */
+    .form-label{ font-weight:700; color:#111; }
+    .input-group-text i{ font-size:20px; opacity:.85; }
+    .form-control:focus, .form-select:focus{ box-shadow: var(--ring); border-color: var(--amber); }
+
+    /* Toggle pills for Service */
+    .toggle-group .btn{
+      border:1px solid var(--bs-border-color);
+      color:#111; background:#fff;
+      transition: transform .1s ease;
+    }
+    .toggle-group .btn:hover{ transform: translateY(-1px); }
+    .btn-check:checked + .btn{
+      background: linear-gradient(135deg,var(--amber),var(--amber-600));
+      border-color: transparent; color:#111; font-weight:800;
+      box-shadow: 0 10px 22px rgba(245,158,11,.25);
+    }
+
+    /* Section header */
+    .section-title{ font-weight:900; letter-spacing:.02em; }
+
+    /* Feature icons */
+    .feature i{ font-size:28px; }
+
+    /* Reveal on scroll */
+    .reveal{ opacity:0; transform: translateY(14px); transition: .5s ease; }
+    .reveal.show{ opacity:1; transform:none; }
+
+    /* Footer line */
+    .brand-bar{ color:var(--gray-500); }
+
+    /* Toast center bottom */
+    .toast-holder{
+      position:fixed; left:50%; bottom:22px; transform:translateX(-50%); z-index:1080;
+    }
+
+    @media (max-width: 576px){
+      .hero .actions{ justify-content:flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container-custom d-flex align-items-center justify-content-between">
+    
+    <!-- Left: Home button -->
+    <a class="btn btn-outline-light me-3" href="index.html">
+      <i class="ri-home-4-line"></i> Home
+    </a>
+
+    <!-- Center: Brand -->
+    <a class="navbar-brand mx-auto" href="index.html">MR.LOOK</a>
+    
+  </div>
+</nav>
+
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-media">
+      <!-- Replace with your hero image -->
+      <img src="assets/img65.jpeg" alt="" class="hero-img" loading="lazy" id="heroImg">
+    </div>
+    <div class="container-custom hero-content">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-6">
+          <h1 class="display-5 mb-3">Let’s capture your big day.</h1>
+          <p class="mb-4">Weddings, portraits, events, and commercial shoots — crafted with care and delivered fast.</p>
+          <div class="d-flex gap-2 flex-wrap actions">
+            <a href="#form" class="btn btn-brand"><i class="ri-send-plane-2-fill me-1"></i> Request Booking</a>
+          </div>
+        </div>
+        <div class="col-lg-5 ms-lg-auto">
+          <div class="card reveal">
+            <div class="card-body">
+              <div class="d-flex align-items-center gap-2 mb-2">
+                <i class="ri-calendar-check-line fs-4 text-warning"></i>
+                <strong>Fast confirmation • Within 24 hours</strong>
+              </div>
+              <p class="mb-0 text-muted">No upfront payment. We’ll confirm availability first.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Booking Form -->
+  <main class="py-5" id="form">
+    <div class="container-custom">
+      <h2 class="section-title h1 mb-3 reveal">Book your date</h2>
+      <p class="text-muted mb-4 reveal">Fill this quick form. We’ll email/text you to confirm.</p>
+
+      <div class="row g-4">
+        <div class="col-lg-8">
+          <form class="card reveal needs-validation" id="bookForm" novalidate>
+            <div class="card-body p-4 p-md-5">
+              <!-- Contacts -->
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label for="name" class="form-label">Full name</label>
+                  <div class="input-group input-group-lg">
+                    <span class="input-group-text"><i class="ri-user-line"></i></span>
+                    <input id="name" name="name" class="form-control" placeholder="Your name" autocomplete="name" required>
+                    <div class="invalid-feedback">Please enter your name.</div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <label for="email" class="form-label">Email</label>
+                  <div class="input-group input-group-lg">
+                    <span class="input-group-text"><i class="ri-mail-line"></i></span>
+                    <input id="email" name="email" type="email" class="form-control" placeholder="you@email.com" autocomplete="email" required>
+                    <div class="invalid-feedback">Enter a valid email.</div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <label for="phone" class="form-label">Phone</label>
+                  <div class="input-group input-group-lg">
+                    <span class="input-group-text"><i class="ri-phone-line"></i></span>
+                    <input id="phone" name="phone" class="form-control" placeholder="+94 77 000 0000"
+                           inputmode="tel" pattern="^[+0-9\\s-]{7,20}$" title="Use digits, +, spaces or dashes" required>
+                    <div class="invalid-feedback">Enter a valid phone number.</div>
+                  </div>
+                </div>
+              </div>
+
+              <hr class="my-4">
+
+              <!-- Service (toggle pills) -->
+              <div class="mb-3">
+                <label class="form-label d-block">Service</label>
+                <div class="btn-group toggle-group flex-wrap" role="group" aria-label="Service">
+                  <input type="radio" class="btn-check" name="service" id="srvWedding" value="Wedding" required>
+                  <label class="btn btn-light me-2 mb-2" for="srvWedding"><i class="ri-hearts-line me-1"></i> Wedding</label>
+
+                  <input type="radio" class="btn-check" name="service" id="srvPortrait" value="Portrait">
+                  <label class="btn btn-light me-2 mb-2" for="srvPortrait"><i class="ri-user-smile-line me-1"></i> Portrait</label>
+
+                  <input type="radio" class="btn-check" name="service" id="srvEvent" value="Event">
+                  <label class="btn btn-light me-2 mb-2" for="srvEvent"><i class="ri-calendar-event-line me-1"></i> Event</label>
+
+                  <input type="radio" class="btn-check" name="service" id="srvCommercial" value="Commercial">
+                  <label class="btn btn-light me-2 mb-2" for="srvCommercial"><i class="ri-store-line me-1"></i> Commercial</label>
+                </div>
+                <div class="form-text">Choose one (you can clarify more below).</div>
+              </div>
+
+              <!-- Date/Time/Package -->
+              <div class="row g-3 mt-1">
+                <div class="col-md-4">
+                  <label for="dateInput" class="form-label">Date</label>
+                  <div class="input-group input-group-lg">
+                    <span class="input-group-text"><i class="ri-calendar-line"></i></span>
+                    <input id="dateInput" name="date" type="date" class="form-control" required>
+                    <div class="invalid-feedback">Pick a date.</div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <label for="time" class="form-label">Time</label>
+                  <div class="input-group input-group-lg">
+                    <span class="input-group-text"><i class="ri-time-line"></i></span>
+                    <input id="time" name="time" type="time" class="form-control" required>
+                    <div class="invalid-feedback">Choose a time.</div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <label for="package" class="form-label">Package</label>
+                  <select id="package" name="package" class="form-select form-select-lg" required>
+                    <option value="">Choose…</option>
+                    <option>Starter</option>
+                    <option>Signature</option>
+                    <option>Full Day</option>
+                  </select>
+                  <div class="invalid-feedback">Select a package.</div>
+                </div>
+              </div>
+
+              <!-- Message -->
+              <div class="mt-4">
+                <label for="message" class="form-label">Notes (optional)</label>
+                <textarea id="message" name="message" rows="4" class="form-control" placeholder="Tell us about your event…"></textarea>
+              </div>
+
+              <!-- Files -->
+              <div class="mt-3">
+                <label for="ref" class="form-label">Reference images (optional)</label>
+                <input id="ref" name="ref" type="file" class="form-control" accept="image/*" multiple>
+              </div>
+
+              <!-- Actions -->
+              <div class="d-flex flex-wrap gap-2 align-items-center mt-4">
+                <button class="btn btn-brand btn-lg" type="submit"><i class="ri-send-plane-2-fill me-1"></i> Request Booking</button>
+                <span class="text-muted">No payment now. We’ll confirm availability first.</span>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <!-- Side panel: why trust + contact -->
+        <div class="col-lg-4">
+          <div class="card mb-4 reveal">
+            <div class="card-header py-3">
+              <strong>Why book with us</strong>
+            </div>
+            <div class="card-body">
+              <div class="d-flex gap-3 align-items-start feature mb-3">
+                <i class="ri-flashlight-line text-warning"></i>
+                <div><strong>Fast delivery</strong><div class="text-muted">Edited photos in 48–72h (events) or 7 days (weddings).</div></div>
+              </div>
+              <div class="d-flex gap-3 align-items-start feature mb-3">
+                <i class="ri-shield-check-line text-warning"></i>
+                <div><strong>Secure contract</strong><div class="text-muted">Clear scope, no surprise fees.</div></div>
+              </div>
+              <div class="d-flex gap-3 align-items-start feature">
+                <i class="ri-timer-line text-warning"></i>
+                <div><strong>Always on time</strong><div class="text-muted">We arrive early and prepared.</div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card reveal">
+            <div class="card-header py-3">
+              <strong>Need help?</strong>
+            </div>
+            <div class="card-body">
+              <p class="text-muted mb-3">Prefer WhatsApp or a quick call? We’re happy to chat.</p>
+              <a class="btn btn-outline-dark w-100 mb-2" href="tel:+94770000000"><i class="ri-phone-fill me-1"></i> +94 77 000 0000</a>
+              <a class="btn btn-outline-dark w-100" href="mailto:hello@mrlookstudio.com"><i class="ri-mail-fill me-1"></i> hello@mrlookstudio.com</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <p class="text-center brand-bar mt-5">© <span id="year"></span> Mr.Look Photography</p>
+    </div>
+  </main>
+
+  <!-- Toast -->
+  <div class="toast-holder">
+    <div class="toast align-items-center border-warning" role="status" aria-live="polite" id="toast" data-bs-delay="2200">
+      <div class="d-flex">
+        <div class="toast-body">
+          <i class="ri-check-line text-warning me-1"></i> Sent! We’ll get back to you soon.
+        </div>
+        <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Hero image fade-in after load
+    const heroImg = document.getElementById('heroImg');
+    if(heroImg.complete) heroImg.classList.add('loaded');
+    heroImg.addEventListener('load', ()=> heroImg.classList.add('loaded'));
+
+    // Min date = today (local)
+    (function(){
+      const d = new Date();
+      const yyyy = d.getFullYear();
+      const mm = String(d.getMonth()+1).padStart(2,'0');
+      const dd = String(d.getDate()).padStart(2,'0');
+      document.getElementById('dateInput').setAttribute('min', `${yyyy}-${mm}-${dd}`);
+    })();
+
+    // Reveal on scroll
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('show'); });
+    }, { threshold:.1 });
+    document.querySelectorAll('.reveal').forEach(el=> io.observe(el));
+
+    // Persist basic fields
+    (function(){
+      const form = document.getElementById('bookForm');
+      ['name','email','phone'].forEach(k=>{
+        const el = form.elements[k];
+        const saved = localStorage.getItem(`booking_${k}`);
+        if(saved) el.value = saved;
+        el?.addEventListener('input', ()=> localStorage.setItem(`booking_${k}`, el.value));
+      });
+    })();
+
+    // Bootstrap validation + fake submit + toast
+    (function(){
+      const form = document.getElementById('bookForm');
+      const toastEl = document.getElementById('toast');
+      const toast = new bootstrap.Toast(toastEl);
+
+      form.addEventListener('submit', async (e)=>{
+        e.preventDefault();
+        if(!form.checkValidity()){
+          e.stopPropagation();
+          form.classList.add('was-validated');
+          return;
+        }
+
+        const data = new FormData(form);
+        // TODO: send to your API
+        // await fetch('/api/bookings', { method:'POST', body:data });
+
+        // demo delay
+        await new Promise(r=>setTimeout(r, 500));
+
+        // reset non-persisted fields
+        ['service','date','time','package','message','ref'].forEach(k=>{
+          const el = form.elements[k];
+          if(!el) return;
+          if(el.type === 'file') el.value = '';
+          else if(el.type === 'radio'){
+            document.querySelectorAll('[name="service"]').forEach(r=>r.checked=false);
+          }else{
+            el.value = '';
+          }
+        });
+        form.classList.remove('was-validated');
+        toast.show();
+      });
+    })();
+  </script>
+</body>
+</html>
+
+
