@@ -187,7 +187,9 @@ figure{margin:0;}
 .hamburger[aria-expanded="true"] .icon-close{ display:block; }
 
 @media(max-width:880px){
- .hamburger{ display:flex; align-items:center; justify-content:center; }
+ .hamburger{ display:flex; align-items:center; justify-content:center; 
+       background:none; padding:8px; border-radius:8px;
+       transition: background .25s var(--ease-smooth); }
 
   
   .nav{
@@ -728,4 +730,5 @@ figcaption{opacity:.8}
 .reel-embed{padding:12px}
 .reel-embed video{width:100%; height:auto; border-radius:10px}
 .reel-close{position:absolute; right:8px; top:4px; background:rgba(0,0,0,.08); color:#fff; border:none; width:36px; height:36px; border-radius:50%; cursor:pointer}
+
 
