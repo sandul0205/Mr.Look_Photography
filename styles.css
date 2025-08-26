@@ -168,7 +168,6 @@ figure{margin:0;}
   .hamburger{
     display:flex; z-index:1001; position:fixed; right:24px; top:30px;
     background:none; padding:8px; border-radius:8px;
-    transition: background .25s var(--ease-smooth);
   }
 
   
