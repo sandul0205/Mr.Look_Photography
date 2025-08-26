@@ -301,7 +301,7 @@ figure{margin:0;}
     font-size: clamp(1.6rem, 8.4vw, 2.2rem);
     line-height:1.15;
   }
-  .subtitle{ font-size: clamp(1.5rem, 4.4vw, 2rem);padding-top:200px ; }
+  .subtitle{ font-size: clamp(1.5rem, 4.4vw, 2rem); }
   .eyebrow{letter-spacing: 2px;}
   .cta{
     justify-content:flex-start; /* left edge */
@@ -730,6 +730,7 @@ figcaption{opacity:.8}
 .reel-embed{padding:12px}
 .reel-embed video{width:100%; height:auto; border-radius:10px}
 .reel-close{position:absolute; right:8px; top:4px; background:rgba(0,0,0,.08); color:#fff; border:none; width:36px; height:36px; border-radius:50%; cursor:pointer}
+
 
 
 
