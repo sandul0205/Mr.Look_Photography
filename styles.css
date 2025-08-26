@@ -161,37 +161,15 @@ figure{margin:0;}
   transform-origin:left center; transition:transform .28s var(--ease-smooth), width .28s var(--ease-smooth), left .28s var(--ease-smooth);
 }
 .nav-link:focus-visible{outline:none; box-shadow:var(--ring)}
+.hamburger{display:none; position:absolute; right:4%; top:14px; flex-direction:column; gap:5px; width:36px; background:none; border:none; cursor:pointer}
+.hamburger span{height:2px; background:#fff; border-radius:4px; transition:transform .3s var(--ease-smooth), opacity .3s var(--ease-smooth)}
 
-/* Base size/z-layer so it's always visible and tappable on iOS */
-.hamburger{
-  display:none;                 /* shown by media query below */
-  position:fixed; right:24px; top:30px;
-  padding:8px; border:none; background:none; border-radius:8px;
-  width:36px; height:36px;      /* explicit box for iOS */
-  z-index:2001;                 /* above the dropdown */
-  cursor:pointer;
-}
-
-/* The icons */
-.hamburger i{
-  display:block;                /* important for iOS */
-  line-height:1;
-  font-size:28px;
-  color:#fff;
-  pointer-events:none;          /* clicks go to the button */
-}
-
-/* Show the menu icon by default, swap to close when open */
-.hamburger .icon-close{ display:none; }
-.hamburger[aria-expanded="true"] .icon-menu{ display:none; }
-.hamburger[aria-expanded="true"] .icon-close{ display:block; }
-
-/* Mobile: reveal the hamburger, stack the nav panel */
-@media (max-width:880px){
-  .hamburger{ display:flex; align-items:center; justify-content:center; }
-  .nav{ z-index:2000; }         /* panel just under the button */
-}
-
+@media(max-width:880px){
+  .hamburger{
+    display:flex; z-index:1001; position:fixed; right:24px; top:30px;
+    background:none; padding:8px; border-radius:8px;
+    transition: background .25s var(--ease-smooth);
+  }
 
   
   .nav{
@@ -385,7 +363,6 @@ figure{margin:0;}
 .hero-card-body{padding:12px 16px 16px}
 .hero-card-body h3{margin:6px 0 6px; font-size:var(--fs-h3); font-weight:800}
 .hero-card-body p{margin:0 0 14px; color:rgba(0,0,0,.75)}
-
 
 /* ================= Scroll Animations (global) ================= */
 @media (prefers-reduced-motion: no-preference){
