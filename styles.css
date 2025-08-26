@@ -161,17 +161,17 @@ figure{margin:0;}
   transform-origin:left center; transition:transform .28s var(--ease-smooth), width .28s var(--ease-smooth), left .28s var(--ease-smooth);
 }
 .nav-link:focus-visible{outline:none; box-shadow:var(--ring)}
-.hamburger{ position:absolute; right:4%; top:14px; flex-direction:column; gap:5px; width:36px; background:none; border:none; cursor:pointer}
+.hamburger{display:none; position:absolute; right:4%; top:14px; flex-direction:column; gap:5px; width:36px; background:none; border:none; cursor:pointer}
 .hamburger span{height:2px; background:#fff; border-radius:4px; transition:transform .3s var(--ease-smooth), opacity .3s var(--ease-smooth)}
 
 @media(max-width:880px){
   .hamburger{
-    display:flex; z-index:1005; position:fixed; right:24px; top:30px;
-    background:var(--nav-bg); padding:8px; border-radius:8px;
+    display:flex; z-index:1001; position:fixed; right:24px; top:30px;
+    background:none; padding:8px; border-radius:8px;
     transition: background .25s var(--ease-smooth);
   }
 
-
+  
   .nav{
     position:absolute; left:4%; right:4%; top:62px;
     flex-direction:column; gap:.25rem; justify-content:initial;
@@ -659,6 +659,38 @@ figcaption{opacity:.8}
 }
 .footer.footer-modern .form-control::placeholder{ color:rgba(255,255,255,.7); }
 .footer.footer-modern .btn, .footer.footer-modern .input-group-text{ border-radius:.75rem; }
+
+/* Crafted by badge */
+.crafted-by{
+  display:inline-flex; align-items:center; gap:.6rem;
+  padding:.45rem .75rem; border-radius:999px;
+  border:1px solid var(--border, rgba(0,0,0,.12));
+  background: var(--card, #fff);
+  color: var(--text, #111); font-size:.9rem; line-height:1;
+  transition:transform .2s ease, background .2s ease, box-shadow .2s ease;
+}
+.crafted-by:hover{ transform:translateY(-1px); box-shadow:var(--shadow, 0 10px 30px rgba(0,0,0,.08)); }
+
+.auri-logo-wrap{
+  width:24px; height:24px; flex:0 0 24px;
+  display:inline-block; border-radius:6px; /* square or soften corners */
+  overflow:hidden;
+}
+.auri-logo-img{
+  width:100%; height:100%; object-fit:contain; display:block;
+}
+.crafted-text{ display:inline-flex; align-items:baseline; gap:.4rem; }
+.crafted-text .by{ opacity:.7; font-weight:500; }
+
+/* If your footer uses a dark background (footer-modern), keep contrast high */
+.footer-modern .crafted-by{
+  background:rgba(255,255,255,.06);
+  border-color:rgba(255,255,255,.12);
+  color:#fff;
+}
+.footer-modern .crafted-by:hover{ background:rgba(255,255,255,.1); }
+.footer-modern .crafted-text .by{ opacity:.8; }
+
 
 /* ================= Lightbox ================= */
 .lightbox{position:fixed; inset:0; display:none; place-items:center; background:rgba(0,0,0,.88); z-index:10000; padding:20px}
