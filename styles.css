@@ -161,15 +161,27 @@ figure{margin:0;}
   transform-origin:left center; transition:transform .28s var(--ease-smooth), width .28s var(--ease-smooth), left .28s var(--ease-smooth);
 }
 .nav-link:focus-visible{outline:none; box-shadow:var(--ring)}
-.hamburger{display:none; position:absolute; right:4%; top:14px; flex-direction:column; gap:5px; width:36px; background:none; border:none; cursor:pointer}
-.hamburger span{height:2px; background:#fff; border-radius:4px; transition:transform .3s var(--ease-smooth), opacity .3s var(--ease-smooth)}
 
-@media(max-width:880px){
-  .hamburger{
-    display:flex; z-index:1001; position:fixed; right:24px; top:30px;
-    background:none; padding:8px; border-radius:8px;
-    transition: background .25s var(--ease-smooth);
-  }
+/* iOS Safari fix: make the bars real width */
+.hamburger { width: 36px; height: 26px; }          /* keep your size */
+.hamburger span{
+  display: block;
+  width: 100%;            /* <-- important */
+  height: 2px;
+  background: #fff;
+  border-radius: 4px;
+}
+
+/* keep it above the nav panel just in case */
+@media (max-width:880px){
+  .hamburger{ z-index: 2001; }
+  .nav{ z-index: 2000; }
+}
+
+/* optional: notched iPhones — keep it below the status bar */
+@supports (padding-top: env(safe-area-inset-top)) {
+  .hamburger{ top: calc(30px + env(safe-area-inset-top)); }
+}
 
   
   .nav{
