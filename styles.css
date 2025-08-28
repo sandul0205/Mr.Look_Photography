@@ -734,14 +734,23 @@ figure.card-img.skeleton img, .hero-card-media.skeleton img{ position:relative; 
 .lightbox-close{top:24px; right:24px; transform:none}
 
 /* ===== Back-to-top button ===== */
-#toTop{
-  position: fixed; right: clamp(12px, 2vw, 18px); bottom: calc(18px + env(safe-area-inset-bottom, 0));
-  width:46px; height:46px; border-radius:50%; border:1px solid var(--border); background: rgba(255,255,255,.92);
-  color: var(--black); font-weight:900; font-size:18px; display:grid; place-items:center; cursor:pointer;
-  box-shadow: var(--shadow); -webkit-backdrop-filter: saturate(140%) blur(6px); backdrop-filter: saturate(140%) blur(6px);
-  opacity:0; visibility:hidden; transform: translateY(10px) scale(.96);
-  transition: opacity .2s var(--ease-smooth), transform .2s var(--ease-smooth), visibility .2s var(--ease-smooth); z-index:10000;
-}
-#toTop.show{ opacity:1; visibility:visible; transform:none; }
-#toTop:hover{ background: var(--yellow); color: var(--black); border-color: transparent; transform: translateY(-2px); box-shadow: 0 10px 28px rgba(0,0,0,.2); }
-#toTop:focus-visible{ outline:none; box-shadow:var(--ring); }
+ #toTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+    background: #f59e0b;   /* yellow accent */
+    color: #fff;
+    border: none;
+    outline: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
