@@ -689,6 +689,12 @@ figure.card-img.skeleton img, .hero-card-media.skeleton img{ position:relative; 
 .accordion p{color:#444}
 
 /* ===== Footer (modern) ===== */
+:root{
+  --dark:#0b1326;
+  --muted:#94a3b8;
+  --border:#1f2937;
+  --accent:#f59e0b;
+}
 .footer{
   background:var(--dark);
   color:#e5e7eb;
@@ -810,6 +816,7 @@ h4{ margin:0 0 10px; }
     opacity: 1;
     pointer-events: auto;
   }
+
 
 
 
