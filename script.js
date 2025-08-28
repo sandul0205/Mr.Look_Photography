@@ -412,20 +412,20 @@
     modal?.querySelector(".reel-close")?.addEventListener("click", () => modal?.close?.());
   })();
 
-  // ===== Back-to-top button =====
-  (function toTopBtn() {
-    if (document.getElementById("toTop")) return; // don't duplicate
-    const btn = document.createElement("button");
-    btn.id = "toTop";
-    btn.type = "button";
-    btn.setAttribute("aria-label", "Back to top");
-    btn.innerHTML = "↑";
-    document.body.appendChild(btn);
-    const onScroll = () => btn.classList.toggle("show", scrollY > 700);
-    addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-    btn.addEventListener("click", () => scrollTo({ top: 0, behavior: "smooth" }));
-  })();
+   // Back to Top Functionality
+  const toTopBtn = document.getElementById("toTop");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 200) {
+      toTopBtn.classList.add("show");
+    } else {
+      toTopBtn.classList.remove("show");
+    }
+  });
+
+  toTopBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
 
   // ===== Image loading animation (blur-up + shimmer skeleton) =====
   (function imageLoading() {
