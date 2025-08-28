@@ -738,7 +738,7 @@ figure.card-img.skeleton img, .hero-card-media.skeleton img{ position:relative; 
   .map-overlay {
     position: static;  /* place below map instead of overlay */
     margin-top: 12px;
-    width: 100%;
+    width: 50%;
     max-width: 100%;
   }
   .footer .d-flex.flex-md-row {
@@ -825,6 +825,7 @@ figure.card-img.skeleton img, .hero-card-media.skeleton img{ position:relative; 
     opacity: 1;
     pointer-events: auto;
   }
+
 
 
 
