@@ -753,4 +753,15 @@ figure.card-img.skeleton img, .hero-card-media.skeleton img{ position:relative; 
     pointer-events: none;
     transition: opacity 0.3s ease, transform 0.3s ease;
   }
+ #toTop:hover {
+    background: #d97706; /* darker yellow */
+    transform: scale(1.1);
+  }
+
+  /* Visible state */
+  #toTop.show {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
 
