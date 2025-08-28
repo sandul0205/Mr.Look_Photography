@@ -736,11 +736,9 @@ figure.card-img.skeleton img, .hero-card-media.skeleton img{ position:relative; 
     text-align: center;
   }
   .map-overlay {
-    position: static;  /* place below map instead of overlay */
-    margin-top: 12px;
-    width: 50%;
-    max-width: 100%;
-  }
+      display: none 
+     
+   
   .footer .d-flex.flex-md-row {
     flex-direction: column !important;
     text-align: center;
@@ -825,6 +823,7 @@ figure.card-img.skeleton img, .hero-card-media.skeleton img{ position:relative; 
     opacity: 1;
     pointer-events: auto;
   }
+
 
 
 
