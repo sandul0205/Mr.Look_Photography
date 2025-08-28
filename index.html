@@ -3,12 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <title>Mr.Look Photography</title>
   <meta name="description" content="Unforgettable moments captured with artistry. Weddings, portraits, events and commercial shoots by Mr.Look Photography." />
+
+  <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"> 
+
+  <!-- Bootstrap (optional utilities) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
   <link rel="icon" href="assets/logo.jpeg">
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -18,72 +24,58 @@
 
   <!-- Header / Nav -->
   <header class="header" id="top">
-    <!-- Animated dark strip (0 -> 120px height desktop, 80px mobile) -->
     <div class="nav-drop" aria-hidden="true"></div>
-
     <div class="container nav-wrap nav-3col">
-      <!-- Left: brand (slides down) -->
       <a class="logo brand-left slide-down" href="#top" aria-label="Mr.Look Home">Mr.Look Photography</a>
 
       <nav class="nav" id="nav" role="navigation" aria-label="Primary">
         <a href="#home" class="nav-link slide-item active" aria-current="page">Home</a>
         <a href="#projects" class="nav-link slide-item">Projects</a>
-        <a href="#services" class="nav-link slide-item">Services</a>
+        <a href="#about" class="nav-link slide-item">About</a>
+        <a href="#packages" class="nav-link slide-item">Packages</a>
+        <a href="#reviews" class="nav-link slide-item">Reviews</a>
+        <a href="#faq" class="nav-link slide-item">FAQ</a>
         <a href="#contact" class="nav-link slide-item">Contact</a>
         <span class="nav-indicator" aria-hidden="true"></span>
       </nav>
-
-      <div class="nav-spacer"></div>
 
       <!-- Mobile hamburger -->
       <button class="hamburger" aria-controls="nav" aria-expanded="false" aria-label="Toggle menu">
         <i class="ri-menu-line icon-menu" aria-hidden="true"></i>
         <i class="ri-close-line icon-close" aria-hidden="true"></i>
       </button>
-
     </div>
   </header>
 
   <!-- Hero -->
   <section class="hero hero-shot" id="home" aria-label="Hero">
     <div class="hero-media">
-      <!-- Fade-in + priority load -->
-      <img class="fade-in" src="assets/img18.jpeg" alt="Elegant bridal portrait by Mr.Look"
-           decoding="async" fetchpriority="high" />
+      <img class="fade-in" src="assets/img18.jpeg" alt="Elegant bridal portrait by Mr.Look" decoding="async" fetchpriority="high" />
       <div class="hero-overlay strong"></div>
     </div>
 
     <div class="container hero-content">
-      <!-- Left text stack -->
       <div class="hero-stack">
         <h1 class="title slide-left" data-animate style="--delay:.5s">
           Unforgettable <br>moments captured <br>with artistry.
         </h1>
-
-        <h2 class="subtitle slide-left" data-animate style="--delay:0.7s">
-          Book Now For Your Event
-        </h2>
-
-        <p class="eyebrow slide-left" data-animate style="--delay:0.9s">
-          Mr.Look Photography
-        </p>
-
+        <h2 class="subtitle slide-left" data-animate style="--delay:.7s">Book Now For Your Event</h2>
+        <p class="eyebrow slide-left" data-animate style="--delay:.9s">MR.LOOK PHOTOGRAPHY</p>
         <div class="cta" data-animate style="--delay:1s">
           <a href="#projects" class="btn btn-light">Projects</a>
           <a href="booking.html" class="btn btn-primary">Book Now</a>
         </div>
       </div>
 
-      <!-- Right floating card -->
+      <!-- Floating story card -->
       <aside class="hero-card slide-up" data-animate style="--delay:.4s" aria-label="Featured story">
         <div class="hero-card-media">
           <img src="assets/img62.jpeg" alt="Engagement portrait" loading="lazy" decoding="async">
         </div>
         <div class="hero-card-body">
           <h3>She said YES</h3>
-          <p>Hold my hand and tell me you are mine forever. I need you every second</p>
-          <a href="https://m.facebook.com/story.php?story_fbid=pfbid02NF4v1zCGY1ddFw8u4QguuQxWyAiEsJQ1ATFdBvCZuQuXevtpp2QozhV4dB85BzPWl&id=61565476093095&mibextid=Nif5oz"
-             class="btn btn-blue">
+          <p>Hold my hand and tell me you are mine forever. I need you every second.</p>
+          <a href="https://m.facebook.com/story.php?story_fbid=pfbid02NF4v1zCGY1ddFw8u4QguuQxWyAiEsJQ1ATFdBvCZuQuXevtpp2QozhV4dB85BzPWl&id=61565476093095&mibextid=Nif5oz" class="btn btn-blue">
             Read more <i class="ri-arrow-right-line" aria-hidden="true"></i>
           </a>
         </div>
@@ -91,41 +83,23 @@
     </div>
   </section>
 
-  <!-- Clients strip / Ticker (matches your light gray CSS) -->
-<section class="clients" id="clients">
-  <div class="container">
-    <div class="ticker" data-speed="70" role="region" aria-label="Popular shoot types">
-      <div class="ticker__inner">
-        <!-- Track A -->
-        <ul class="ticker__track">
-          <li>Weddings</li>
-          <li>Portraits</li>
-          <li>Engagements</li>
-          <li>Birthdays</li>
-          <li>Fashion</li>
-          <li>Product</li>
-          <li>Corporate</li>
-          <li>Baby Shoots</li>
-          <li>Pregnancy Shoots</li>
-          <li>Events</li>
-        </ul>
-        <!-- Track B (duplicate for seamless loop without JS) -->
-        <ul class="ticker__track" aria-hidden="true">
-          <li>Weddings</li>
-          <li>Portraits</li>
-          <li>Engagements</li>
-          <li>Birthdays</li>
-          <li>Fashion</li>
-          <li>Product</li>
-          <li>Corporate</li>
-          <li>Baby Shoots</li>
-          <li>Pregnancy Shoots</li>
-          <li>Events</li>
-        </ul>
+  <!-- Clients ticker -->
+  <section class="clients" id="clients" aria-label="Popular shoot types">
+    <div class="container">
+      <div class="ticker" data-speed="70">
+        <div class="ticker__inner">
+          <ul class="ticker__track">
+            <li>Weddings</li><li>Portraits</li><li>Engagements</li><li>Birthdays</li><li>Fashion</li>
+            <li>Product</li><li>Corporate</li><li>Baby Shoots</li><li>Pregnancy Shoots</li><li>Events</li>
+          </ul>
+          <ul class="ticker__track" aria-hidden="true">
+            <li>Weddings</li><li>Portraits</li><li>Engagements</li><li>Birthdays</li><li>Fashion</li>
+            <li>Product</li><li>Corporate</li><li>Baby Shoots</li><li>Pregnancy Shoots</li><li>Events</li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
 
   <!-- Projects / Gallery -->
@@ -148,207 +122,160 @@
         <figure class="card-img"><img src="assets/img22.jpeg" alt="Engagement ring" loading="lazy" decoding="async"></figure>
       </div>
 
+      <!-- Lightbox -->
+      <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+        <button class="lightbox-close" aria-label="Close preview">×</button>
+        <button class="lightbox-prev" aria-label="Previous">‹</button>
+        <img class="lightbox-img" alt="Preview">
+        <button class="lightbox-next" aria-label="Next">›</button>
+        <p class="lightbox-cap"></p>
+      </div>
+
       <div class="center" data-animate>
         <a href="gallery.html" class="btn btn-primary" style="color:#000">Explore Gallery</a>
       </div>
     </div>
-
-
-
-    <!-- Lightbox -->
-    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
-      <button class="lightbox-close" aria-label="Close preview">×</button>
-      <button class="lightbox-prev" aria-label="Previous">‹</button>
-      <img class="lightbox-img" alt="Preview">
-      <button class="lightbox-next" aria-label="Next">›</button>
-      <p class="lightbox-cap"></p>
-    </div>
   </section>
 
+  <!-- Section divider -->
+  <div class="section-sep" aria-hidden="true"><span></span></div>
 
-<!-- ABOUT SECTION -->
-<section class="py-5 bg-light" id="about">
+  <!-- ABOUT (refreshed: uses your uploaded image + concise copy) -->
+<section class="py-5 about-compact" id="about" aria-label="About Mr.Look Photography">
   <div class="container">
-    <div class="row align-items-center g-5 mt-2">
-      
-      <!-- Left: Portrait / Studio Image -->
-      <div class="col-lg-5 text-center">
-        <img src="assets/owner.jpeg" alt="Mr.Look Photography" 
-             class="img-fluid shadow-lg" 
-             style="max-width: 400px; border-radius: 50%;">
+    <header class="section-header" data-animate>
+      <h2 class="section-title">About Mr.Look Photography</h2>
+      <p class="section-sub">Story-driven images. Personal, elegant, timeless.</p>
+    </header>
+
+    <div class="row align-items-center g-4">
+      <!-- Left: round avatar -->
+      <div class="col-lg-4 text-center text-lg-start">
+        <figure class="about-avatar-wrap" data-animate>
+          <!-- Use your photographer portrait here -->
+          <img src="assets/owner.jpeg" alt="Photographer — Mr.Look" class="about-avatar" loading="lazy" decoding="async">
+        </figure>
       </div>
 
-      <!-- Right: Content -->
-      <div class="col-lg-7">
-        <h2 class="fw-bold mb-3">About <span class="text-warning">Mr.Look Photography</span></h2>
-        
-        <p class="text-muted">
-          Our journey started with a simple love for storytelling through the lens. Over the years, 
-          we’ve grown into a trusted name for couples, families, and brands who want their stories 
-          told with creativity and authenticity. Whether it’s the joy of a wedding, the laughter of 
-          a family, or the elegance of a product shoot, we focus on the details that make your 
-          moments unique.
-        </p>
-        <p class="text-muted">
-          With professional equipment, artistic vision, and a dedication to perfection, we turn your 
-          precious moments into timeless works of art. Every frame we capture is carefully crafted 
-          to reflect your personality and emotions, so when you look back, you relive the moment as if it just happened.
+      <!-- Right: concise copy -->
+      <div class="col-lg-8" data-animate>
+        <p class="about-lead mb-3">
+          We capture the heart of your day—real emotion, natural beauty, and the
+          little moments you’ll treasure forever. With a passion for storytelling,
+          we craft elegant visuals that reflect the love, joy, and personality of every couple.
         </p>
 
-        <!-- Highlights -->
-        <div class="row mt-3">
-          <div class="col-md-4 text-center">
-            <i class="ri-camera-lens-line display-6 text-warning"></i>
-            <h6 class="mt-2">Creative Shots</h6>
-            <p class="small text-muted">Unique perspectives & artistic frames.</p>
-          </div>
-          <div class="col-md-4 text-center">
-            <i class="ri-team-line display-6 text-warning"></i>
-            <h6 class="mt-2">Client Focused</h6>
-            <p class="small text-muted">We listen, plan & capture your vision.</p>
-          </div>
-          <div class="col-md-4 text-center">
-            <i class="ri-star-smile-line display-6 text-warning"></i>
-            <h6 class="mt-2">Memorable Moments</h6>
-            <p class="small text-muted">Photography that tells your story forever.</p>
-          </div>
+        <ul class="about-list">
+          <li><i class="ri-heart-3-line"></i><span><strong>Passion & dedication</strong> in every frame.</span></li>
+          <li><i class="ri-sparkling-2-line"></i><span><strong>Creative vision</strong> with artful composition and detail.</span></li>
+          <li><i class="ri-user-smile-line"></i><span><strong>Personal approach</strong> tailored to your story.</span></li>
+          <li><i class="ri-flashlight-line"></i><span><strong>Fast turnaround</strong> so you can relive the day sooner.</span></li>
+        </ul>
+
+        <div class="cta mt-2">
+          <a href="#packages" class="btn btn-primary">See Packages</a>
+          <a href="booking.html" class="btn btn-light">Book a Date</a>
         </div>
-
       </div>
     </div>
   </div>
 </section>
 
-            <!-- Lightbox -->
-    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
-      <button class="lightbox-close" aria-label="Close preview">×</button>
-      <button class="lightbox-prev" aria-label="Previous">‹</button>
-      <img class="lightbox-img" alt="Preview">
-      <button class="lightbox-next" aria-label="Next">›</button>
-      <p class="lightbox-cap"></p>
-    </div>
-  </section>
 
-  
+  <!-- Section divider -->
+  <div class="section-sep" aria-hidden="true"><span></span></div>
 
-  <!-- Services -->
-  <section class="section" id="services">
-    <div class="container">
-      <header class="section-header" data-animate>
-        <h2 class="section-title">Services</h2>
-        <p class="section-sub">Flexible packages for every story.</p>
-      </header>
-
-      <div class="service-grid">
-        <article class="service-card pop" data-animate>
-          <i class="ri-heart-3-line"></i>
-          <h3>Weddings</h3>
-          <p>Full day coverage, candid moments and cinematic portraits.</p>
-        </article>
-        <article class="service-card pop" data-animate>
-          <i class="ri-user-smile-line"></i>
-          <h3>Portraits</h3>
-          <p>Studio or outdoor sessions with creative lighting.</p>
-        </article>
-        <article class="service-card pop" data-animate>
-          <i class="ri-sparkling-2-line"></i>
-          <h3>Events</h3>
-          <p>Birthdays, engagements, corporate & more, delivered fast.</p>
-        </article>
-        <article class="service-card pop" data-animate>
-          <i class="ri-shopping-bag-3-line"></i>
-          <h3>Commercial</h3>
-          <p>Products and brand campaigns that stand out online.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- Packages / Pricing -->
+  <!-- Packages / Pricing (minimal portrait carousel) -->
   <section class="section alt" id="packages">
     <div class="container">
       <header class="section-header" data-animate>
         <h2 class="section-title">Packages</h2>
-        <p class="section-sub">Pick the plan that fits your day.</p>
+        <p class="section-sub">Swipe to explore — tap for details.</p>
       </header>
 
-      <div class="price-grid">
-        <div class="price-card slide-up" data-animate>
-          <h3>Starter</h3>
-          <p class="price">$149</p>
-          <ul>
-            <li>2 hours • 60 edits</li>
-            <li>Online gallery</li>
-            <li>72h delivery</li>
-          </ul>
-          <a href="booking.html" class="btn btn-primary">Choose</a>
-        </div>
-        <div class="price-card featured slide-up" data-animate style="--delay:.08s">
-          <div class="badge">Popular</div>
-          <h3>Signature</h3>
-          <p class="price">$399</p>
-          <ul>
-            <li>6 hours • 220 edits</li>
-            <li>Highlight reel</li>
-            <li>Priority delivery</li>
-          </ul>
-          <a href="booking.html" class="btn btn-light">Choose</a>
-        </div>
-        <div class="price-card slide-up" data-animate style="--delay:.16s">
-          <h3>Full Day</h3>
-          <p class="price">$699</p>
-          <ul>
-            <li>10 hours • 400 edits</li>
-            <li>2 shooters</li>
-            <li>Album ready</li>
-          </ul>
-          <a href="booking.html" class="btn btn-primary">Choose</a>
-        </div>
-      </div>
-    </div>
-  </section>
+      <div class="cbar" id="pkgCarousel" data-animate>
+        <button class="cbtn cprev" aria-label="Previous"><i class="ri-arrow-left-line"></i></button>
 
-  <!-- Testimonials: Card Slider -->
-  <section class="section testi-slider" id="testimonials">
-    <div class="container">
-      <header class="section-header" data-animate>
-        <h2 class="section-title">Happy Clients</h2>
-        <p class="section-sub">What people say about us.</p>
-      </header>
+        <div class="cview" aria-label="Packages">
+          <div class="ctrack">
+            <article class="pkg-card minimal portrait">
+              <figure class="pkg-img">
+                <img src="assets/packages/pkg1.jpeg" alt="Wedding — Mr.Look" loading="lazy" decoding="async">
+                <a href="booking.html?pkg=wedding" class="btn btn-primary pkg-btn">Book Now</a>
+              </figure>
+            </article>
 
-      <div class="testi-bar" data-animate>
-        <button class="tbtn tprev" aria-label="Previous"><i class="ri-arrow-left-line"></i></button>
+            <article class="pkg-card minimal portrait">
+              <figure class="pkg-img">
+                <img src="assets/packages/pkg2.jpeg" alt="Engagement — Mr.Look" loading="lazy" decoding="async">
+                <a href="booking.html?pkg=engagement" class="btn btn-primary pkg-btn">Book Now</a>
+              </figure>
+            </article>
 
-        <div class="tview" id="tView">
-          <div class="ttrack">
-            <figure class="tcard" data-animate>
-              <div class="tstars">★★★★★</div>
-              <blockquote>“Every moment felt natural. The album is stunning!”</blockquote>
-              <figcaption>— Kavindi & Tharindu</figcaption>
-            </figure>
-            <figure class="tcard" data-animate>
-              <div class="tstars">★★★★★</div>
-              <blockquote>“Fast delivery and brilliant colors. Highly recommend.”</blockquote>
-              <figcaption>— Ayesh</figcaption>
-            </figure>
-            <figure class="tcard" data-animate>
-              <div class="tstars">★★★★★</div>
-              <blockquote>“Our brand shoot boosted sales the same week.”</blockquote>
-              <figcaption>— Moon Tea</figcaption>
-            </figure>
-            <figure class="tcard" data-animate>
-              <div class="tstars">★★★★★</div>
-              <blockquote>“Professional, friendly, and super creative angles.”</blockquote>
-              <figcaption>— Dilani</figcaption>
-            </figure>
+            <article class="pkg-card minimal portrait">
+              <figure class="pkg-img">
+                <img src="assets/packages/pkg3.jpeg" alt="Pre Shoot — Mr.Look" loading="lazy" decoding="async">
+                <a href="booking.html?pkg=pre-shoot" class="btn btn-primary pkg-btn">Book Now</a>
+              </figure>
+            </article>
+
+            <article class="pkg-card minimal portrait">
+              <figure class="pkg-img">
+                <img src="assets/packages/custom-portrait.jpg" alt="Custom Package — Mr.Look" loading="lazy" decoding="async">
+                <a href="booking.html?pkg=custom" class="btn btn-primary pkg-btn">Book Now</a>
+              </figure>
+            </article>
           </div>
         </div>
 
-        <button class="tbtn tnext" aria-label="Next"><i class="ri-arrow-right-line"></i></button>
+        <button class="cbtn cnext" aria-label="Next"><i class="ri-arrow-right-line"></i></button>
+      </div>
+
+      <div class="cdots" id="pkgDots" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- Section divider -->
+  <div class="section-sep" aria-hidden="true"><span></span></div>
+
+  <!-- Reviews -->
+  <section class="section" id="reviews">
+    <div class="container">
+      <header class="section-header" data-animate>
+        <h2 class="section-title">Reviews</h2>
+        <p class="section-sub">Real words from happy clients.</p>
+      </header>
+
+      <div class="revbar" data-animate>
+        <button class="rbtn rprev" aria-label="Previous"><i class="ri-arrow-left-line"></i></button>
+        <div class="rview" id="revView" aria-label="Client reviews">
+          <div class="rtrack" id="reviewsTrack">
+            <figure class="review-card">
+              <div class="review-stars" aria-label="5 out of 5">★★★★★</div>
+              <blockquote>“Every moment felt natural. The album is stunning!”</blockquote>
+              <figcaption>— Kavindi &amp; Tharindu</figcaption>
+            </figure>
+            <figure class="review-card">
+              <div class="review-stars">★★★★★</div>
+              <blockquote>“Fast delivery and brilliant colors. Highly recommend.”</blockquote>
+              <figcaption>— Ayesh</figcaption>
+            </figure>
+            <figure class="review-card">
+              <div class="review-stars">★★★★★</div>
+              <blockquote>“Our brand shoot boosted sales the same week.”</blockquote>
+              <figcaption>— Moon Tea</figcaption>
+            </figure>
+          </div>
+        </div>
+        <button class="rbtn rnext" aria-label="Next"><i class="ri-arrow-right-line"></i></button>
+
+        <a class="btn " href="add-review.html?redirect=index.html#reviews">Write a Review</a>
       </div>
     </div>
   </section>
+
+    <div class="section-sep" aria-hidden="true"><span></span></div>
+
 
   <!-- FAQ -->
   <section class="section" id="faq">
@@ -384,317 +311,70 @@
             <span class="fs-4 fw-bold text-white">Mr.Look Photography</span>
           </a>
           <p class="text-secondary mb-3">We craft timeless stories — weddings, portraits, events & brands.</p>
+
           <div class="d-flex flex-wrap gap-2 mb-3">
-            <a href="tel:+94770000000" class="chip"><i class="ri-phone-line"></i> +94 77 6767 279</a>
+            <a href="tel:+94776767279" class="chip"><i class="ri-phone-line"></i> +94 77 6767 279</a>
             <a href="mailto:hello@mrlookstudio.com" class="chip"><i class="ri-mail-line"></i> hello@mrlookstudio.com</a>
             <span class="chip chip-ghost"><i class="ri-time-line"></i> Mon–Sat 9:00–18:00</span>
           </div>
+
           <div class="d-flex gap-2 mt-1">
             <a class="btn btn-outline-light btn-icon" href="https://instagram.com/yourname" target="_blank" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
             <a class="btn btn-outline-light btn-icon" href="https://facebook.com/yourpage" target="_blank" aria-label="Facebook"><i class="ri-facebook-circle-line"></i></a>
             <a class="btn btn-outline-light btn-icon" href="https://tiktok.com/@yourname" target="_blank" aria-label="TikTok"><i class="ri-tiktok-line"></i></a>
-            <a class="btn btn-outline-light btn-icon" href="https://wa.me/94770000000" target="_blank" aria-label="WhatsApp"><i class="ri-whatsapp-line"></i></a>
+            <a class="btn btn-outline-light btn-icon" href="https://wa.me/94776767279" target="_blank" aria-label="WhatsApp"><i class="ri-whatsapp-line"></i></a>
           </div>
         </div>
 
-    <div class="col-lg-7" data-animate>
-  <div class="map-card position-relative rounded-4 overflow-hidden">
-    <div class="map-ratio">
-      <iframe
-        title="Mr.Look Studio Map"
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        src="https://www.google.com/maps?q=Panadura%2C%20Sri%20Lanka&output=embed"></iframe>
-    </div>
-    <div class="map-overlay card shadow-sm">
-      <div class="card-body p-3 p-sm-4">
-        <div class="d-flex align-items-start gap-2">
-          <div class="pin"><i class="ri-map-pin-2-fill"></i></div>
-          <div class="flex-grow-1">
-            <h6 class="mb-1 text-white">Mr.Look Photography Studio — Panadura</h6>
-            <p class="mb-2 small text-secondary">372, Horana Road, Mahabellana, Panadura 12524</p>
-            <div class="d-flex flex-wrap gap-2">
-              <a class="btn btn-warning btn-sm fw-semibold" target="_blank"
-                 href="https://www.google.com/maps/dir/?api=1&destination=Panadura%2C%20Sri%20Lanka">Get directions</a>
+        <div class="col-lg-7" data-animate>
+          <div class="map-card position-relative rounded-4 overflow-hidden">
+            <div class="map-ratio">
+              <iframe title="Mr.Look Studio Map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                      src="https://www.google.com/maps?q=Panadura%2C%20Sri%20Lanka&output=embed"></iframe>
+            </div>
+
+            <div class="map-overlay card shadow-sm">
+              <div class="card-body p-3 p-sm-4">
+                <div class="d-flex align-items-start gap-2">
+                  <div class="pin"><i class="ri-map-pin-2-fill"></i></div>
+                  <div class="flex-grow-1">
+                    <h6 class="mb-1 text-white">Mr.Look Photography Studio — Panadura</h6>
+                    <p class="mb-2 small text-secondary">372, Horana Road, Mahabellana, Panadura 12524</p>
+                    <div class="d-flex flex-wrap gap-2">
+                      <a class="btn btn-warning btn-sm fw-semibold" target="_blank"
+                         href="https://www.google.com/maps/dir/?api=1&destination=Panadura%2C%20Sri%20Lanka">Get directions</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div> 
-  </div>
-</div>
-
       </div>
 
       <hr class="my-4 border-secondary border-opacity-25">
 
       <div class="d-flex flex-column flex-md-row align-items-center justify-content-between gap-3" data-animate>
-  <p class="mb-0 small text-secondary">© <span id="year"></span> Mr.Look Photography — All rights reserved.</p>
+        <p class="mb-0 small text-secondary">© <span id="year"></span> Mr.Look Photography — All rights reserved.</p>
 
-  <!-- Crafted by Auricode Solutions -->
-  <a class="crafted-by text-decoration-none" href="https://auricode.solutions" target="_blank" rel="noopener" aria-label="Crafted by Auricode Solutions">
-    <span class="auri-logo-wrap">
-  <img src="assets/AuricodeLogo.png"
-       alt="Auricode Solutions logo"
-       class="auri-logo-img"
-       loading="lazy" decoding="async">
-</span>
-<span class="crafted-text"><span class="by">Crafted by</span><strong>Auricode Solutions</strong></span>
-  </a>
+        <a class="crafted-by text-decoration-none" href="https://auricode.solutions" target="_blank" rel="noopener" aria-label="Crafted by Auricode Solutions">
+          <span class="auri-logo-wrap">
+            <img src="assets/AuricodeLogo.png" alt="Auricode Solutions logo" class="auri-logo-img" loading="lazy" decoding="async">
+          </span>
+          <span class="crafted-text"><span class="by">Crafted by</span><strong>Auricode Solutions</strong></span>
+        </a>
 
-  <ul class="nav small">
-    <li class="nav-item"><a class="nav-link px-2 subtle-link" href="terms&Condi.html">Terms &amp; Conditions</a></li>
-  </ul>
-</div>
-
+        <ul class="nav small">
+          <li class="nav-item"><a class="nav-link px-2 subtle-link" href="terms&Condi.html">Terms &amp; Conditions</a></li>
+        </ul>
+      </div>
     </div>
   </footer>
 
-  <!-- Scripts -->
-  <script>
-    // ===== Year =====
-    const yearEl = document.getElementById('year');
-    if (yearEl) yearEl.textContent = new Date().getFullYear();
+  <!-- Back to top -->
+  <button id="toTop" aria-label="Back to top">↑</button>
 
-    // ===== Hero image fade-in =====
-    (function heroFade(){
-      const heroImg = document.querySelector('.hero-media .fade-in');
-      if (!heroImg) return;
-      if (heroImg.complete) heroImg.classList.add('in');
-      else heroImg.addEventListener('load', ()=> heroImg.classList.add('in'));
-    })();
-
-    // ===== Scroll-aware header (shrink + shadow) =====
-    (function headerScroll(){
-      const header = document.querySelector('.header');
-      if (!header) return;
-      const onScroll = () => {
-        if (window.scrollY > 8) header.classList.add('scrolled');
-        else header.classList.remove('scrolled');
-      };
-      onScroll();
-      addEventListener('scroll', onScroll, { passive: true });
-    })();
-
-    // ===== Hamburger / mobile menu =====
-    (function mobileMenu(){
-      const ham = document.querySelector('.hamburger');
-      const nav = document.getElementById('nav');
-      if(!ham || !nav) return;
-
-      ham.addEventListener('click', ()=>{
-        const open = nav.classList.toggle('open');
-        ham.setAttribute('aria-expanded', open ? 'true' : 'false');
-      });
-
-      // Close menu on link click (mobile)
-      nav.addEventListener('click', (e)=>{
-        const a = e.target.closest('a.nav-link');
-        if(!a) return;
-        if(nav.classList.contains('open')){
-          nav.classList.remove('open');
-          ham.setAttribute('aria-expanded','false');
-        }
-      });
-    })();
-
-    // ===== Progress bar =====
-    (function progressBar(){
-      const bar = document.querySelector('.progress-bar');
-      if(!bar) return;
-      const setBar = ()=> {
-        const h = document.documentElement;
-        const scrolled = (h.scrollTop)/(h.scrollHeight - h.clientHeight) * 100;
-        bar.style.width = scrolled + '%';
-      };
-      setBar();
-      addEventListener('scroll', setBar, {passive:true});
-      addEventListener('resize', setBar);
-    })();
-
-    // ===== Scroll reveal ([data-animate] => .show) + auto-annotate & stagger =====
-    (function reveal(){
-      // Auto-annotate common elements if author forgot to add data-animate
-      const auto = [
-        '.section-header',
-        '.masonry .card-img',
-        '.service-card',
-        '.price-card',
-        '.tcard',
-        '.accordion details',
-        '.footer .map-card',
-        '.footer .btn-icon',
-      ];
-      auto.forEach(sel => {
-        document.querySelectorAll(sel).forEach(el => el.setAttribute('data-animate',''));
-      });
-
-      // Stagger children inside these containers
-      const staggerSets = [
-        ['.masonry', '.card-img', 60],
-        ['.service-grid', '.service-card', 80],
-        ['.price-grid', '.price-card', 80],
-        ['.ttrack', '.tcard', 80],
-      ];
-      staggerSets.forEach(([rootSel, childSel, step])=>{
-        const root = document.querySelector(rootSel);
-        if(!root) return;
-        root.querySelectorAll(childSel).forEach((el, i)=>{
-          el.style.setProperty('--delay', (i*step/1000)+'s');
-        });
-      });
-
-      // Observer
-      const els = document.querySelectorAll('[data-animate]');
-      if(!els.length) return;
-      const io = new IntersectionObserver((entries)=>{
-        entries.forEach(e=>{
-          if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target); }
-        });
-      },{threshold:.18, rootMargin: '0px 0px -8% 0px'});
-      els.forEach(el=>io.observe(el));
-    })();
-
-    // ===== Lightbox =====
-    (function lightbox(){
-      const imgs = Array.from(document.querySelectorAll('.masonry img'));
-      const lb = document.getElementById('lightbox');
-      if(!imgs.length || !lb) return;
-      const lbImg = lb.querySelector('.lightbox-img');
-      const cap = lb.querySelector('.lightbox-cap');
-      let idx = 0;
-
-      function show(i){
-        const im = imgs[i];
-        lbImg.src = im.src;
-        cap.textContent = im.alt || '';
-      }
-      function openLB(i){ idx=i; show(i); lb.classList.add('open'); }
-      function step(d){ idx=(idx+d+imgs.length)%imgs.length; show(idx); }
-
-      imgs.forEach((im,i)=> im.addEventListener('click', ()=> openLB(i)));
-      lb.querySelector('.lightbox-close')?.addEventListener('click', ()=> lb.classList.remove('open'));
-      lb.querySelector('.lightbox-prev')?.addEventListener('click', ()=> step(-1));
-      lb.querySelector('.lightbox-next')?.addEventListener('click', ()=> step(1));
-      lb.addEventListener('click', (e)=>{ if(e.target===lb) lb.classList.remove('open'); });
-      addEventListener('keydown', (e)=>{
-        if(!lb.classList.contains('open')) return;
-        if(e.key==='Escape') lb.classList.remove('open');
-        if(e.key==='ArrowLeft') step(-1);
-        if(e.key==='ArrowRight') step(1);
-      });
-    })();
-
-    // ===== Testimonials slider (prev/next + wheel) =====
-    (function testi(){
-      const view = document.getElementById('tView');
-      if(!view) return;
-      const prev = document.querySelector('.tprev');
-      const next = document.querySelector('.tnext');
-      const step = () => Math.max(260, Math.round(view.clientWidth * 0.9));
-
-      prev?.addEventListener('click', ()=> view.scrollBy({left:-step(), behavior:'smooth'}));
-      next?.addEventListener('click', ()=> view.scrollBy({left: step(), behavior:'smooth'}));
-
-      view.addEventListener('wheel', (e)=>{
-        if(Math.abs(e.deltaY) > Math.abs(e.deltaX)){
-          e.preventDefault(); view.scrollBy({left:e.deltaY, behavior:'auto'});
-        }
-      }, {passive:false});
-    })();
-
-    // ===== Animated navbar indicator + scrollspy + link stagger =====
-    (function enhancedNav(){
-      const nav = document.getElementById('nav');
-      if(!nav) return;
-      const links = Array.from(nav.querySelectorAll('.nav-link'));
-      if(!links.length) return;
-
-      // Stagger index for nav links
-      links.forEach((el, i)=> el.style.setProperty('--i', i));
-
-      let indicator = nav.querySelector('.nav-indicator');
-      if(!indicator){
-        indicator = document.createElement('span');
-        indicator.className = 'nav-indicator';
-        indicator.setAttribute('aria-hidden','true');
-        nav.appendChild(indicator);
-      }
-
-      function moveTo(el){
-        const r = el.getBoundingClientRect();
-        const p = nav.getBoundingClientRect();
-        const left = r.left - p.left;
-        indicator.style.left = `${left}px`;
-        indicator.style.width = `${r.width}px`;
-      }
-      function setActive(el){
-        links.forEach(a=>{
-          const isActive = a === el;
-          a.classList.toggle('active', isActive);
-          if(isActive) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current');
-        });
-        moveTo(el);
-      }
-      function setToCurrentActive(){
-        const a = nav.querySelector('.nav-link.active') || links[0];
-        if(a) moveTo(a);
-      }
-
-      links.forEach(a=>{
-        a.addEventListener('mouseenter',()=> moveTo(a));
-        a.addEventListener('focus',()=> moveTo(a));
-      });
-      nav.addEventListener('mouseleave', setToCurrentActive);
-      addEventListener('resize', setToCurrentActive);
-      setToCurrentActive();
-
-      // ScrollSpy
-      const ids = links.map(a => (a.getAttribute('href')||'').trim()).filter(h => h.startsWith('#')).map(h => h.slice(1));
-      const sections = ids.map(id => document.getElementById(id)).filter(Boolean);
-      const io = new IntersectionObserver((entries)=>{
-        entries.forEach(e=>{
-          if(e.isIntersecting){
-            const id = e.target.id;
-            const link = links.find(a => a.getAttribute('href') === `#${id}`);
-            if(link){ setActive(link); }
-          }
-        });
-      }, { rootMargin: '-45% 0px -50% 0px' });
-      sections.forEach(sec => io.observe(sec));
-    })();
-
-    // ===== Image loading animation (blur-up + shimmer skeleton) =====
-    (function imageLoading(){
-      const addSkeleton = (img) => {
-        // parent containers we control
-        const p = img.closest('figure.card-img, .hero-card-media');
-        if (p) p.classList.add('skeleton');
-        img.classList.add('is-loading');
-      };
-      const removeSkeleton = (img) => {
-        const p = img.closest('figure.card-img, .hero-card-media');
-        if (p) p.classList.remove('skeleton');
-        img.classList.remove('is-loading');
-        img.classList.add('is-loaded');
-      };
-
-      document.querySelectorAll('img').forEach(img=>{
-        // native lazy for all but hero
-        if (!img.closest('.hero-media')) {
-          img.loading = img.getAttribute('loading') || 'lazy';
-          img.decoding = 'async';
-        }
-        if (img.complete && img.naturalWidth) {
-          // already cached
-          img.classList.add('is-loaded');
-        } else {
-          addSkeleton(img);
-          img.addEventListener('load', ()=> removeSkeleton(img), {once:true});
-          img.addEventListener('error', ()=> removeSkeleton(img), {once:true});
-        }
-      });
-    })();
-  </script>
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
