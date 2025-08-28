@@ -718,7 +718,7 @@ figure.card-img.skeleton img, .hero-card-media.skeleton img{ position:relative; 
 
 /* Map overlay default */
 .map-overlay {
-  max-width: 380px;
+  max-width: 250px;
   background: rgba(17,24,39,0.9); /* semi-dark */
   border-radius: 12px;
   color: #fff;
@@ -731,7 +731,7 @@ figure.card-img.skeleton img, .hero-card-media.skeleton img{ position:relative; 
 /* Phones */
 @media (max-width: 576px) {
   .chip {
-    width: 100%;       /* full width chips for mobile */
+    width: 80%;       /* full width chips for mobile */
     justify-content: center;
     text-align: center;
   }
@@ -825,6 +825,7 @@ figure.card-img.skeleton img, .hero-card-media.skeleton img{ position:relative; 
     opacity: 1;
     pointer-events: auto;
   }
+
 
 
 
